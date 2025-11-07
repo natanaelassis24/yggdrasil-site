@@ -1,65 +1,133 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import { Carousel } from "@/components/Carousel";
 
 export default function Home() {
+  const images = [
+    "/images/empresa/sede1.jpg",
+    "/images/empresa/sede2.jpg",
+    "/images/empresa/sede3.jpg",
+    "/images/empresa/sede4.jpg",
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="bg-black text-gray-200">
+      {/* ========================= HERO ========================= */}
+      <section className="relative flex flex-col items-center justify-center min-h-screen text-center px-6 overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900/30 to-black pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <motion.h1
+          className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-[#bfa76f] via-yellow-500 to-[#bfa76f] bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(191,167,111,0.4)]"
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          YGGDRASIL 
+        </motion.h1>
+        <motion.p
+          className="max-w-2xl text-lg text-gray-400"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 1 }}
+        >
+          Uma entidade tecnológica em constante evolução.  
+          Onde a inovação se entrelaça com a consciência e o futuro se torna presente.
+        </motion.p>
+      </section>
+
+      {/* ========================= SOBRE A EMPRESA ========================= */}
+      <section className="relative py-24 px-8 md:px-20 bg-gradient-to-b from-black to-zinc-950">
+        <motion.h2
+          className="text-4xl font-bold text-[#bfa76f] mb-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          Sobre a Yggdrasil
+        </motion.h2>
+        <motion.p
+          className="max-w-4xl mx-auto text-gray-400 text-center leading-relaxed"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
+          A Yggdrasil é uma Big Tech que transcende o conceito tradicional de empresa.  
+          Somos um núcleo de integração total entre tecnologia, design e inteligência.  
+          Nossa essência é conectar sistemas, pessoas e ideias para criar um ecossistema  
+          onde o progresso é orgânico e contínuo — como as raízes da própria Yggdrasil,  
+          a árvore que sustenta os mundos.
+        </motion.p>
+      </section>
+
+      {/* ========================= SEDE DA EMPRESA ========================= */}
+      <section className="relative py-24 px-8 md:px-20 bg-gradient-to-b from-zinc-950 to-black">
+        <motion.h2
+          className="text-4xl font-bold text-[#bfa76f] mb-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          A Sede da Yggdrasil
+        </motion.h2>
+
+        <motion.div
+          className="max-w-5xl mx-auto text-gray-400 text-center leading-relaxed mb-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
+          O edifício Yggdrasil é um monumento à fusão entre arquitetura e tecnologia.  
+          Projetado para respirar, adaptar-se e evoluir — cada andar é um ambiente inteligente  
+          capaz de reagir ao clima, à presença humana e às necessidades operacionais.  
+          É mais que um espaço físico: é o coração pulsante da nossa rede neural corporativa.
+        </motion.div>
+
+        {/* Carrossel de imagens da sede */}
+        <Carousel images={images} />
+      </section>
+
+      {/* ========================= VISÃO DE FUTURO ========================= */}
+      <section className="relative py-24 px-8 md:px-20 bg-gradient-to-b from-black to-zinc-950">
+        <motion.h2
+          className="text-4xl font-bold text-[#bfa76f] mb-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          Visão de Futuro
+        </motion.h2>
+        <motion.p
+          className="max-w-4xl mx-auto text-gray-400 text-center leading-relaxed"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
+          O futuro é uma extensão natural da consciência coletiva.  
+          A Yggdrasil busca moldar esse futuro através de sistemas que aprendem,  
+          adaptam-se e evoluem com o mundo — não acima dele.  
+          Nossa visão é simples e poderosa: uma tecnologia que coexistisse  
+          com a vida em harmonia, expandindo os limites da criação.
+        </motion.p>
+
+        <motion.div
+          className="w-24 h-[2px] mx-auto mt-10 bg-gradient-to-r from-transparent via-[#bfa76f] to-transparent"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 1 }}
+        />
+      </section>
+    </main>
   );
 }
