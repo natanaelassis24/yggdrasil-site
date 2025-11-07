@@ -20,7 +20,7 @@ export function Navbar() {
           {/* Logo + título */}
           <div className="flex items-center space-x-3">
             <Image
-              src="/logo.png"
+              src="/images/logos/logo.png"
               alt="Yggdrasil Logo"
               width={40}
               height={40}
